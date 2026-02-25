@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Digital Bouquet For Nainuuu❤️</title>
+    <!-- Importing nice fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <style>
+        /* --- CSS STYLES --- */
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        /* Special greeting for Nainuuu */
+        .special-greeting {
+            font-family: 'Pacifico', cursive;
+            font-size: 3.5rem;
+            color: #6a5acd;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 6px rgba(106, 90, 205, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        .heart-symbol {
+            color: #ff1493;
+            font-size: 2rem;
+            display: inline-block;
+            animation: heartbeat 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .sub-text {
+            color: #4a4a4a;
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        /* The Bouquet Button */
+        .bouquet-container {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            display: inline-block;
+            position: relative;
+            z-index: 10;
+        }
+
+        .bouquet-container:hover {
+            transform: scale(1.1);
+        }
+
+        .bouquet-emoji {
+            font-size: 8rem;
+            filter: drop-shadow(0 10px 15px rgba(106, 90, 205, 0.4));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .instruction {
+            color: #6a5acd;
+            margin-top: 15px;
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 500;
+            background: rgba(255,255,255,0.7);
+            padding: 8px 20px;
+            border-radius: 20px;
+        }
+
+        /* The Letter (Hidden by default) */
+        .letter-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.5);
+            width: 80%;
+            max-width: 500px;
+            background: linear-gradient(to bottom, #fff, #f0f8ff);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(106, 90, 205, 0.3);
+            border: 2px solid #e6e6fa;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            z-index: 20;
+            text-align: left;
+        }
+
+        .letter-container.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .letter-content {
+            font-family: 'Pacifico', cursive;
+            color: #4a4a6a;
+            font-size: 1.5rem;
+            line-height: 1.8;
+            white-space: pre-wrap;
+        }
+
+        .letter-border {
+            border-top: 2px dashed #b0c4de;
+            margin: 20px 0;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #9370db;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .close-btn:hover {
+            color: #6a5acd;
+            transform: scale(1.2);
+        }
+
+        /* Flying Blue Flowers Animation */
+        .flower-particle {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .animate-flower {
+            animation: flyUp 1.2s ease-out forwards;
+        }
+
+        @keyframes flyUp {
+            0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
+            100% { transform: translateY(-250px) rotate(360deg) scale(0.5); opacity: 0; }
+        }
+
+        /* Decorative elements */
+        .bg-decoration {
+            position: absolute;
+            font-size: 1.5rem;
+            opacity: 0.5;
+            animation: float 4s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(10deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background decorative elements -->
+    <div class="bg-decoration" style="top: 15%; left: 10%;">💜</div>
+    <div class="bg-decoration" style="top: 25%; right: 12%;">💙</div>
+    <div class="bg-decoration" style="bottom: 20%; left: 15%;">💎</div>
+    <div class="bg-decoration" style="bottom: 30%; right: 8%;">🦋</div>
+    <div class="bg-decoration" style="top: 10%; right: 25%;">💠</div>
+    <div class="bg-decoration" style="bottom: 15%; left: 30%;">💙</div>
+
+    <div class="container">
+        <!-- The Greeting Section -->
+        <div id="greetingSection">
+            <div class="special-greeting">
+                For My Nainuuu<span class="heart-symbol">❤️</span>
+            </div>
+            <div class="sub-text">
+                Flower For My Nainuuuu❤️❤️❤️❤️❤️
+            </div>
+            
+            <!-- The Blue Orchid Bouquet -->
+            <div class="bouquet-container" onclick="openBouquet()">
+                <div class="bouquet-emoji">💐</div>
+                <div class="instruction">Tap to open your surprise</div>
+            </div>
+        </div>
+
+        <!-- The Letter Section -->
+        <div class="letter-container" id="letter">
+            <span class="close-btn" onclick="closeLetter()">&times;</span>
+            <div class="letter-content" id="letterText">
+                💐 My Dearest Nainuuu ❤️ 💐
+
+  My bestfriend, my favourite person❤️❤️❤️❤️🧿 you came to my life as friend but became the most important person in my world and I truly love you the most ❤️❤️❤️🧿🧿 and at last hurting you that day was my biggest regret I did but I promise you that will never repeat that again love youuuuuuuuuuuuuuuuu Nainu ❤️❤️❤️❤️
+                Forever Yours,
+                Sakshuuuuuuu❤️
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* --- JAVASCRIPT LOGIC --- */
+
+        function openBouquet() {
+            const letter = document.getElementById('letter');
+            
+            // 1. Create blue flower particles effect
+            createBlueFlowers();
+
+            // 2. Show the letter after a slight delay
+            setTimeout(() => {
+                letter.classList.add('show');
+            }, 1000);
+        }
+
+        function closeLetter() {
+            document.getElementById('letter').classList.remove('show');
+        }
+
+        function createBlueFlowers() {
+            const container = document.querySelector('.container');
+            
+            // Blue flowers and orchid-related emojis
+            const blueFlowers = [
+                '💐',      // Bouquet
+                '💠',      // Diamond with dot (blue)
+                '💙',      // Blue heart
+                '💜',      // Purple heart
+                '🦋',      // Blue butterfly
+                '🌸',      // Cherry blossom (pink)
+                '🌺',      // Hibiscus (can be pink/blue)
+                '🌷',      // Tulip
+                '🌹',      // Rose
+                '❀',      // White flower
+                '✿',      // Flower
+                '🪻',      // Hyacinth (often purple/blue)
+                '🪷',      // Lotus
+            ];
+            
+            // Create 30 flying particles
+            for (let i = 0; i < 30; i++) {
+                const flower = document.createElement('div');
+                flower.classList.add('flower-particle');
+                flower.innerText = blueFlowers[Math.floor(Math.random() * blueFlowers.length)];
+                
+                // Random starting position around the bouquet
+                const startX = 45 + (Math.random() * 15);
+                const startY = 60 + (Math.random() * 15);
+                
+                flower.style.left = startX + '%';
+                flower.style.top = startY + '%';
+                
+                // Randomize animation speed and delay
+                flower.style.animationDuration = (1 + Math.random() * 0.8) + 's';
+                flower.style.animationDelay = (Math.random() * 0.3) + 's';
+                
+                // Random size
+                const size = 1.5 + Math.random();
+                flower.style.fontSize = size + 'rem';
+                
+                container.appendChild(flower);
+
+                // Trigger animation
+                setTimeout(() => {
+                    flower.classList.add('animate-flower');
+                }, 50);
+
+                // Clean up element after animation
+                setTimeout(() => {
+                    flower.remove();
+                }, 2000);
+            }
+        }
+    </script>
+</body>
+</html>
